@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Boba u hleba</title>
+    <link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	
+	<div id="navbar">
+	  <a href="index.html">Home</a>
+	  <a href="index.php">Info</a>
+	  <a href="#contact">Contact</a>
+	</div>
+	
+	<div class="vidiv">
+	<iframe width="80%" height="800px" src="https://www.youtube.com/embed/mRlXm04S_RY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+	</div>
+	<p style="text-align: center; font-size: 32px;">
+	<div style="padding:15px 15px 250px; font-size:30px; margin-top:30px;">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel scelerisque tellus. Nam in ipsum a justo semper maximus. Suspendisse ipsum mi, mollis ut aliquet vitae, dignissim in augue. Pellentesque eget velit nulla. In quis consectetur sem. Nulla quis molestie justo. Integer dignissim accumsan efficitur.</p>
+
+		<p>LoremMaecenas volutpat ullamcorper aliquam. Ut vitae aliquam risus, at congue elit. Donec semper ex non viverra accumsan. Pellentesque volutpat neque laoreet elit mollis auctor. Nunc dignissim magna tellus, quis auctor justo faucibus sed. In hac habitasse platea dictumst. Aliquam non mollis ante, eget posuere leo. Nullam id dui sit amet sapien malesuada commodo ac in nunc. Nam mollis placerat ligula, sit amet volutpat dui sagittis nec. Phasellus finibus pellentesque est sed interdum. Donec non posuere nisi, in egestas ligula.</p>
+
+		<p>LoremSed vel ullamcorper lacus. Nunc commodo id sem non bibendum. Proin maximus orci ipsum, eget maximus lorem semper ac. Aenean auctor porttitor sem id iaculis. Etiam a dictum libero, et rutrum augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nisl a mi blandit dapibus. Suspendisse eleifend vehicula nunc, vel hendrerit mauris tincidunt vel. Nunc eu tincidunt libero.</p>
+
+		<p>LoremMorbi accumsan dui velit, sit amet egestas quam pharetra eu. Phasellus vitae eros vitae dolor finibus dignissim nec in quam. Aliquam mi enim, tempor vel nisl vel, convallis pharetra neque. Maecenas efficitur porttitor massa, non faucibus enim. Etiam euismod pulvinar elit nec laoreet. Etiam et aliquet nulla. Suspendisse auctor varius sapien vitae aliquam. Morbi iaculis cursus fermentum. Nam eget congue est, a hendrerit sem. Sed in finibus metus, nec mollis urna. Cras dolor velit, facilisis a volutpat et, egestas sit amet sapien. Nam auctor elit vitae quam fermentum, in porta ex ultricies. Donec a ornare metus.</p>
+
+		<p>LoremIn tincidunt euismod sollicitudin. Sed nulla arcu, tristique eu varius vitae, mollis a erat. Nunc faucibus, dui et faucibus eleifend, ligula turpis pulvinar elit, eu dapibus purus neque ut quam. Aliquam bibendum, sapien a porttitor efficitur, felis nisi imperdiet turpis, id posuere tortor mi in massa. Sed interdum suscipit faucibus. Vestibulum pellentesque est eu sodales bibendum. Pellentesque hendrerit id elit et ullamcorper.</p>
+	</div>
+	
+	<script>
+	var prevScrollpos = window.pageYOffset;
+	window.onscroll = function() {
+		var currentScrollPos = window.pageYOffset;
+		if (prevScrollpos > currentScrollPos) {
+			document.getElementById("navbar").style.top = "0";
+		} 
+		else {
+			document.getElementById("navbar").style.top = "-50px";
+		}
+	prevScrollpos = currentScrollPos;
+	}	
+	</script>
+	
+	<div class="footer" id="footer">
+		 <p> Made by: 
+			<a href="https://www.instagram.com/ivaylo.kolev1/" class="insta">Ivaylo Kolev</a>
+		 </p>
+	</div>
+	
+	<script>
+		window.addEventListener('scroll', function() {
+			var footer = document.getElementById('footer');
+			var scrollPosition = window.innerHeight + window.pageYOffset;
+			var documentHeight = document.body.offsetHeight;
+
+			  if (scrollPosition >= documentHeight) {
+				footer.style.bottom = '0';
+			  } else {
+				footer.style.bottom = '-50px';
+			  }
+		})
+	</script>
+	
+</body>
+
+</html>
