@@ -14,68 +14,39 @@
 	<div class="center">
 		<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 			<label for="dbname">Database</label><br>
-			<input type="text" id="dbname" name="dbname" value=" "><br>
+			<input type="text" id="dbname" name="dbname" value=""><br> <!--dobravi proverka za space-->
 			<label for="table">Table</label><br>
-			<input type="text" id="table" name="table" value=" "><br><br>
+			<input type="text" id="table" name="table" value=""><br><br>
 			<input type="submit" name="execute" value="Execute PHP Script">
 		</form>
 	</div>
 	
 	<div class="margin">
-		<?php
-/*		if (isset($_POST['execute'])) {
-			$servername = "127.0.0.1";
-			$username = "root";
-			$password = "";
-			$dbname = $_POST['dbname'];
-			
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			}
-			
-			$sql = "SELECT * FROM ".$_POST['table'];
-			$result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                echo "<table>";
-                echo "<tr><th>EmployeeID</th><th>LastName</th><th>FirstName</th><th>Title</th><th>TitleOfCourtesy</th><th>BirthDate</th><th>HireDate</th><th>Address</th><th>City</th><th>Region</th><th>PostalCode</th><th>Country</th><th>HomePhone</th><th>Extension</th><th>Notes</th><th>ReportsTo</th><th>PhotoPath</th><th>Salary</th></tr>";
-
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row["EmployeeID"] . "</td>";
-                    echo "<td>" . $row["LastName"] . "</td>";
-                    echo "<td>" . $row["FirstName"] . "</td>";
-                    echo "<td>" . $row["Title"] . "</td>";
-                    echo "<td>" . $row["TitleOfCourtesy"] . "</td>";
-                    echo "<td>" . $row["BirthDate"] . "</td>";
-                    echo "<td>" . $row["HireDate"] . "</td>";
-                    echo "<td>" . $row["Address"] . "</td>";
-                    echo "<td>" . $row["IdCity"] . "</td>";
-                    echo "<td>" . $row["Region"] . "</td>";
-                    echo "<td>" . $row["PostalCode"] . "</td>";
-                    echo "<td>" . $row["Country"] . "</td>";
-                    echo "<td>" . $row["HomePhone"] . "</td>";
-                    echo "<td>" . $row["Extension"] . "</td>";
-                    echo "<td>" . $row["Notes"] . "</td>";
-                    echo "<td>" . $row["ReportsTo"] . "</td>";
-                    echo "<td>" . $row["PhotoPath"] . "</td>";
-                    echo "<td>" . $row["Salary"] . "</td>";
-                    echo "</tr>";
-                }
-                echo "</table>";
-            } else {
-                echo "No results found";
-            }
-			$conn->close();
-		}
-		*/?>
         <?php
+        include "config.php";
         include "Database.php";
         if (isset($_POST['execute'])){
             $db = new Database();
             $table = $db->select("SELECT * FROM ".$_POST['table']);
+            // Start the HTML table
+            echo '<table>';
+            echo '<tr>';
+            echo '<th>EmployeeID</th>';
+            echo '<th>Name</th>';
+            echo '<th>Title</th>';
+            echo '<th>Address</th>';
+            echo '<th>IdCity</th>';
+            echo '</tr>';
+            foreach ($table as $employee) {
+                echo '<tr>';
+                echo '<td>' . $employee['EmployeeID'] . '</td>';
+                echo '<td>' . $employee['FirstName'] . ', ' . $employee['LastName'] . '</td>';
+                echo '<td>' . $employee['Title'] . '</td>';
+                echo '<td>' . $employee['Address'] . '</td>';
+                echo '<td>' . $employee['IdCity'] . '</td>';
+                echo '</tr>';
+            }
+            echo '</table>';
         }
         ?>
 	</div>
