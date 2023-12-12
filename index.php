@@ -23,7 +23,7 @@
 	
 	<div class="margin">
         <?php
-        include "config.php";
+        include "db_info.php";
         include "Database.php";
         if (isset($_POST['execute'])){
             $db = new Database();
@@ -80,9 +80,9 @@
 			var documentHeight = document.body.offsetHeight;
 
 			  if (scrollPosition >= documentHeight) {
-				footer.style.bottom = '0'; /* Show the footer */
+				footer.style.bottom = '0'; 
 			  } else {
-				footer.style.bottom = '-50px'; /* Hide the footer */
+				footer.style.bottom = '-50px';
 			  }
 		})
 	</script>
